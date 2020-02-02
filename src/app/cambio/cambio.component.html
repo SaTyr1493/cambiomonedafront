@@ -1,0 +1,37 @@
+
+<div class="container">
+  <h2>
+    Cambiar Moneda
+  </h2>
+  <form>
+    <fieldset class="form-group" style="width: 20%;">
+      <label>Moneda Origen</label>
+      <select class="form-control" name="monedaOrigen" [(ngModel)]="monedaOrigen">
+        <option [value]="d.id" *ngFor="let d of denominaciones; let i = index"  [selected]="i==soles">{{d.nombre}}</option>
+      </select>
+    </fieldset>
+    <fieldset class="form-group" style="width: 20%;">
+      <label>Moneda Destino</label>
+      <select class="form-control" name="monedaDestino" [(ngModel)]="monedaDestino">
+        <option [value]="d.id" *ngFor="let d of denominaciones" >{{d.nombre}}</option>
+      </select>
+    </fieldset>
+    <fieldset class="form-group" style="width: 20%;">
+      <label>Monto</label>
+      <input class="form-control" type="text" name="monto" [(ngModel)]="monto" >
+    </fieldset>
+    <fieldset class="form-group" >
+      <button class="btn btn-warning" (click)="convertir()">Convertir</button>
+    </fieldset>
+    <fieldset class="form-group" *ngIf="msjError" >
+      <label>{{msjError}}</label>
+    </fieldset>
+    <fieldset class="form-group" *ngIf="!msjError">
+      <label>Tipo de Cambio: {{resCambiarMoneda.data.tipoCambio}}</label>
+    </fieldset>
+    <fieldset class="form-group" *ngIf="!msjError">
+      <label>Monto convertido: {{resCambiarMoneda.data.montoCambiado}}</label>
+    </fieldset>
+  </form>
+</div>
+

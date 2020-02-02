@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>
+    Actualizar Tipo Cambio
+  </h2>
+  <fieldset class="form-group" style="width: 20%;">
+    <label>Moneda Origen</label>
+    <select class="form-control" name="monedaOrigen" [(ngModel)]="monedaOrigen">
+      <option [value]="d.id" *ngFor="let d of denominaciones" >{{d.nombre}}</option>
+    </select>
+  </fieldset>
+  <fieldset class="form-group" style="width: 20%;">
+    <label>Moneda Destino</label>
+    <select class="form-control" name="monedaDestino" [(ngModel)]="monedaDestino">
+      <option [value]="d.id" *ngFor="let d of denominaciones" >{{d.nombre}}</option>
+    </select>
+  </fieldset>
+  <fieldset class="form-group" style="width: 20%;">
+    <label>Nuevo Tipo Cambio</label>
+    <input class="form-control" type="text" name="nuevoTipoCambio" [(ngModel)]="nuevoTipoCambio">
+  </fieldset>
+  <fieldset class="form-group" >
+    <button class="btn btn-warning" (click)="actualizar()">Actualizar</button>
+  </fieldset>
+  <fieldset class="form-group" >
+    <label>{{msj}}</label>
+  </fieldset>
+</div>
